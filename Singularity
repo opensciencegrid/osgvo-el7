@@ -10,7 +10,7 @@ yum -y install epel-release yum-plugin-priorities
 yum -y install http://repo.grid.iu.edu/osg/3.3/osg-3.3-el7-release-latest.rpm
 
 # pegasus repo   
-echo -e "# Pegasus\n[Pegasus]\nname=Pegasus\nbaseurl=http://download.pegasus.isi.edu/wms/download/rhel/6/\$basearch/\ngpgcheck=0\nenabled=1\npriority=50" >/etc/yum.repos.d/pegasus.repo
+echo -e "# Pegasus\n[Pegasus]\nname=Pegasus\nbaseurl=http://download.pegasus.isi.edu/wms/download/rhel/7/\$basearch/\ngpgcheck=0\nenabled=1\npriority=50" >/etc/yum.repos.d/pegasus.repo
 
 # well rounded basic system to support a wide range of user jobs
 yum -y groups mark convert
@@ -78,11 +78,10 @@ yum -y install \
 	wget \
 	which \
 
-
 # osg
 # use CA certs from CVMFS    
 yum -y install osg-ca-certs osg-wn-client
-mv /etc/grid-security/certificates /etc/grid-security/certificates.osg-ca-certs \
+mv /etc/grid-security/certificates /etc/grid-security/certificates.osg-ca-certs
 ln -f -s /cvmfs/oasis.opensciencegrid.org/mis/certificates /etc/grid-security/certificates
 
 # htcondor - include so we can chirp

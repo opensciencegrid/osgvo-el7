@@ -18,6 +18,7 @@ RUN yum -y groups mark convert \
                            "Scientific Support"
 
 RUN yum -y install \
+           redhat-lsb \
            astropy-tools \
            bc \
            binutils \

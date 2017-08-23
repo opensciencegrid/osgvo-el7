@@ -21,6 +21,7 @@ yum -y groupinstall "Compatibility Libraries" \
 
 
 yum -y install \
+	redhat-lsb \
     astropy-tools \
 	bc \
 	binutils \

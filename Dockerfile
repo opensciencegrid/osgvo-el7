@@ -112,6 +112,9 @@ RUN for MNTPOINT in \
         /lizard \
         /mnt/hadoop \
         /mnt/hdfs \
+        /xenon \
+        /spt \
+        /stash2 \
     ; do \
         mkdir -p $MNTPOINT ; \
     done

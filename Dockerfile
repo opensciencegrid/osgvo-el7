@@ -59,8 +59,10 @@ RUN yum -y install \
            numpy \
            octave \
            octave-devel \
-           osg-wn-client \
+           openssh \
+           openssh-server \
            openssl098e \
+           osg-wn-client \
            p7zip \
            p7zip-plugins \
            python-astropy \

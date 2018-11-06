@@ -74,6 +74,7 @@ yum -y install \
 	redhat-lsb-core \
 	rsync \
 	scipy \
+    stashcache-client \
 	subversion \
 	tcl-devel \
 	tcsh \

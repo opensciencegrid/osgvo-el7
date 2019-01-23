@@ -80,18 +80,6 @@ RUN yum -y install \
            wget \
            which
 
-# Cuda and cudnn - in case we land on GPU nodes. See:
-#  https://developer.nvidia.com/cuda-downloads
-#  https://gitlab.com/nvidia/cuda/blob/centos7/9.0/devel/cudnn7/Dockerfile
-RUN rpm -Uvh https://developer.download.nvidia.com/compute/cuda/repos/rhel7/x86_64/cuda-repo-rhel7-9.0.176-1.x86_64.rpm \
-    && yum -y clean all \
-    && yum -y install cuda-9-1 \
-    && cd /usr/local \
-    && curl -fsSL http://developer.download.nvidia.com/compute/redist/cudnn/v7.0.5/cudnn-9.1-linux-x64-v7.tgz -O \
-    && tar --no-same-owner -xzf cudnn-9.1-linux-x64-v7.tgz -C /usr/local \
-    && rm -f cudnn-9.1-linux-x64-v7.tgz \
-    && ldconfig
-
 # osg
 RUN yum -y install osg-ca-certs osg-wn-client \
     && rm -f /etc/grid-security/certificates/*.r0

@@ -102,6 +102,7 @@ RUN for MNTPOINT in \
         /mnt/hadoop \
         /mnt/hdfs \
         /xenon \
+        /scratch \
         /spt \
         /stash2 \
     ; do \

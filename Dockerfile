@@ -18,13 +18,17 @@ RUN yum -y groups mark convert \
                            "Scientific Support"
 
 RUN yum -y install \
-           redhat-lsb \
            astropy-tools \
            bc \
            binutils \
            binutils-devel \
+           cmake \
            coreutils \
            curl \
+           davix-devel \
+           dcap-devel \
+           doxygen \
+           dpm-devel \
            fontconfig \
            gcc \
            gcc-c++ \
@@ -32,19 +36,27 @@ RUN yum -y install \
            git \
            glew-devel \
            glib2-devel \
+           glib2-devel \
            glib-devel \
+           globus-gass-copy-devel \
            graphviz \
            gsl-devel \
+           gtest-devel \
            java-1.8.0-openjdk \
            java-1.8.0-openjdk-devel \
+           json-c-devel \
+           lfc-devel \
+           libattr-devel \
            libgfortran \
            libGLU \
            libgomp \
            libicu \
            libquadmath \
+           libssh2-devel \
            libtool \
            libtool-ltdl \
            libtool-ltdl-devel \
+           libuuid-devel \
            libX11-devel \
            libXaw-devel \
            libXext-devel \
@@ -56,9 +68,11 @@ RUN yum -y install \
            libXpm-devel \
            libXt \
            mesa-libGL-devel \
+           nano \
            numpy \
            octave \
            octave-devel \
+           openldap-devel \
            openssh \
            openssh-server \
            openssl098e \
@@ -68,16 +82,21 @@ RUN yum -y install \
            python-astropy \
            python-devel \
            R-devel \
+           redhat-lsb \
            redhat-lsb-core \
            rsync \
            scipy \
+           srm-ifce-devel \
            stashcache-client \
            subversion \
            tcl-devel \
            tcsh \
            time \
            tk-devel \
+           vim \
            wget \
+           xrootd-client-devel \
+           zlib-devel \
            which
 
 # osg

@@ -141,6 +141,6 @@ RUN cd / && \
     ln -s .singularity.d/runscript singularity
 
 # build info
-RUN echo "Timestamp:" `date --utc` | tee /image-build-info.txt
+RUN echo "Timestamp:" `date --utc` |  tee /image-build-info.txt
 
 

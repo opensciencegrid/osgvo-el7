@@ -79,6 +79,10 @@ RUN yum -y install \
            osg-wn-client \
            p7zip \
            p7zip-plugins \
+           python3 \
+           python36-PyYAML \
+           python3-devel \
+           python3-pip \
            python-astropy \
            python-devel \
            R-devel \

@@ -23,6 +23,7 @@ RUN yum -y install \
            binutils \
            binutils-devel \
            cmake \
+           compat-glibc \
            coreutils \
            curl \
            davix-devel \

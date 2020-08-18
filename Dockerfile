@@ -1,5 +1,10 @@
 FROM centos:7
-MAINTAINER Mats Rynge "rynge@isi.edu"
+
+LABEL opensciencegrid.name="EL 7"
+LABEL opensciencegrid.description="Enterprise Linux (CentOS) 7 base image"
+LABEL opensciencegrid.url="https://www.centos.org/"
+LABEL opensciencegrid.category="Base"
+LABEL opensciencegrid.definition_url="https://github.com/opensciencegrid/osgvo-el7"
 
 RUN yum -y upgrade
 RUN yum -y install epel-release yum-plugin-priorities

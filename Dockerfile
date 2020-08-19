@@ -6,29 +6,23 @@ LABEL opensciencegrid.url="https://www.centos.org/"
 LABEL opensciencegrid.category="Base"
 LABEL opensciencegrid.definition_url="https://github.com/opensciencegrid/osgvo-el7"
 
-RUN yum -y upgrade
-RUN yum -y install epel-release yum-plugin-priorities
-
-# osg repo
-RUN yum -y install http://repo.opensciencegrid.org/osg/3.5/osg-3.5-el7-release-latest.rpm
-   
-# pegasus repo 
-RUN echo -e "# Pegasus\n[Pegasus]\nname=Pegasus\nbaseurl=http://download.pegasus.isi.edu/wms/download/rhel/7/\$basearch/\ngpgcheck=0\nenabled=1\npriority=50" >/etc/yum.repos.d/pegasus.repo
-
-# well rounded basic system to support a wide range of user jobs
-RUN yum -y groups mark convert \
-    && yum -y grouplist \
-    && yum -y groupinstall "Compatibility Libraries" \
-                           "Development Tools" \
-                           "Scientific Support"
-
-RUN yum -y install \
+RUN yum -y upgrade && \
+    yum -y install epel-release yum-plugin-priorities && \
+    yum -y install http://repo.opensciencegrid.org/osg/3.5/osg-3.5-el7-release-latest.rpm && \
+    echo -e "# Pegasus\n[Pegasus]\nname=Pegasus\nbaseurl=http://download.pegasus.isi.edu/wms/download/rhel/7/\$basearch/\ngpgcheck=0\nenabled=1\npriority=50" >/etc/yum.repos.d/pegasus.repo && \
+    yum -y groups mark convert && \
+    yum -y grouplist &&\
+    yum -y groupinstall "Compatibility Libraries" \
+                        "Development Tools" \
+                        "Scientific Support" && \
+    yum -y install \
            astropy-tools \
            bc \
            binutils \
            binutils-devel \
            cmake \
            compat-glibc \
+           condor \
            coreutils \
            curl \
            davix-devel \
@@ -82,9 +76,12 @@ RUN yum -y install \
            openssh \
            openssh-server \
            openssl098e \
+           osg-ca-certs \
+           osg-wn-client \
            osg-wn-client \
            p7zip \
            p7zip-plugins \
+           pegasus \
            python3 \
            python36-PyYAML \
            python3-devel \
@@ -105,22 +102,12 @@ RUN yum -y install \
            tk-devel \
            vim \
            wget \
+           which \
            xrootd-client-devel \
            zlib-devel \
-           which
-
-# osg
-RUN yum -y install osg-ca-certs osg-wn-client \
-    && rm -f /etc/grid-security/certificates/*.r0
-
-# htcondor - include so we can chirp
-RUN yum -y install condor
-
-# pegasus
-RUN yum -y install pegasus
-
-# Cleaning caches to reduce size of image
-RUN yum clean all
+           && \
+    rm -f /etc/grid-security/certificates/*.r0 && \
+    yum clean all
 
 # required directories
 RUN for MNTPOINT in \
@@ -145,11 +132,6 @@ RUN mkdir -p /host-libs /etc/OpenCL/vendors
 
 # some extra singularity stuff
 COPY .singularity.d /.singularity.d
-RUN cd / && \
-    ln -s .singularity.d/actions/exec .exec && \
-    ln -s .singularity.d/actions/run .run && \
-    ln -s .singularity.d/actions/test .shell && \
-    ln -s .singularity.d/runscript singularity
 
 # build info
 RUN echo "Timestamp:" `date --utc` |  tee /image-build-info.txt

@@ -36,7 +36,6 @@ RUN yum -y upgrade && \
            git \
            glew-devel \
            glib2-devel \
-           glib2-devel \
            glib-devel \
            globus-gass-copy-devel \
            graphviz \
@@ -77,7 +76,6 @@ RUN yum -y upgrade && \
            openssh-server \
            openssl098e \
            osg-ca-certs \
-           osg-wn-client \
            osg-wn-client \
            p7zip \
            p7zip-plugins \

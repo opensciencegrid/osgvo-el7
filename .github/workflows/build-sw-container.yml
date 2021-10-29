@@ -25,28 +25,8 @@ jobs:
     if: startsWith(github.repository, 'opensciencegrid/')
     strategy:
       fail-fast: False
-      matrix:
-        repo: ['development', 'testing', 'release']
     steps:
     - uses: actions/checkout@v2
-
-    - name: Generate tag list
-      id: generate-tag-list
-      env:
-        REPO: ${{ matrix.repo }}
-        TIMESTAMP: ${{ needs.make-date-tag.outputs.dtag }}
-      run: |
-        docker_repo=${GITHUB_REPOSITORY/opensciencegrid\/docker-/opensciencegrid/}
-        tag_list=()
-        for registry in hub.opensciencegrid.org docker.io; do
-          for image_tag in "$REPO" "$REPO-$TIMESTAMP"; do
-            tag_list+=("$registry/$docker_repo":"$image_tag")
-          done
-        done
-        # This causes the tag_list array to be comma-separated below,
-        # which is required for build-push-action
-        IFS=,
-        echo "::set-output name=taglist::${tag_list[*]}"
 
     - name: Set up Docker Buildx
       uses: docker/setup-buildx-action@v1
@@ -69,5 +49,5 @@ jobs:
       with:
         context: .
         push: true
-        build-args: BASE_YUM_REPO=${{ matrix.repo }}
-        tags: "${{ steps.generate-tag-list.outputs.taglist }}"
+        tags: "hub.opensciencegrid.org/opensciencegrid/osgvo-el7:latest,docker.io/opensciencegrid/osgvo-el7:latest"
+

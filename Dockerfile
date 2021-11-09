@@ -8,7 +8,7 @@ LABEL opensciencegrid.definition_url="https://github.com/opensciencegrid/osgvo-e
 
 RUN yum -y upgrade && \
     yum -y install epel-release yum-plugin-priorities && \
-    yum -y install http://repo.opensciencegrid.org/osg/3.5/osg-3.5-el7-release-latest.rpm && \
+    yum -y install http://repo.opensciencegrid.org/osg/3.6/osg-3.6-el7-release-latest.rpm && \
     echo -e "# Pegasus\n[Pegasus]\nname=Pegasus\nbaseurl=http://download.pegasus.isi.edu/wms/download/rhel/7/\$basearch/\ngpgcheck=0\nenabled=1\npriority=50" >/etc/yum.repos.d/pegasus.repo && \
     yum -y groups mark convert && \
     yum -y grouplist &&\

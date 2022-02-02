@@ -43,6 +43,7 @@ RUN yum -y upgrade && \
            gtest-devel \
            java-1.8.0-openjdk \
            java-1.8.0-openjdk-devel \
+           jq \
            json-c-devel \
            lfc-devel \
            libattr-devel \

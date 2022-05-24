@@ -15,7 +15,7 @@ RUN yum -y upgrade && \
     yum -y groupinstall "Compatibility Libraries" \
                         "Development Tools" \
                         "Scientific Support" && \
-    yum -y install \
+    yum -y install --enablerepo=osg-testing \
            astropy-tools \
            bc \
            binutils \
@@ -93,7 +93,7 @@ RUN yum -y upgrade && \
            rsync \
            scipy \
            srm-ifce-devel \
-           stashcache-client \
+           stashcp \
            subversion \
            tcl-devel \
            tcsh \

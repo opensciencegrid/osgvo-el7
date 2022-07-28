@@ -63,6 +63,7 @@ RUN yum -y upgrade && \
            libXft-devel \
            libxml2 \
            libxml2-devel \
+           libXm \
            libXmu-devel \
            libXpm \
            libXpm-devel \

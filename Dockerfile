@@ -69,6 +69,8 @@ RUN yum -y upgrade && \
            libXpm-devel \
            libXt \
            mesa-libGL-devel \
+           motif \
+           motif-devel \
            nano \
            numpy \
            octave \

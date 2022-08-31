@@ -117,7 +117,6 @@ RUN for MNTPOINT in \
         /ceph \
         /hadoop \
         /hdfs \
-        /lizard \
         /mnt/hadoop \
         /mnt/hdfs \
         /xenon \
